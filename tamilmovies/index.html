@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch API Example</title>
+</head>
+<body>
+  <h1>API Data:</h1>
+  <div id="api-data"></div>
+
+  <script>
+    // Define the URL of the API endpoint
+    const apiUrl = 'http://127.0.0.1:5000/'; // Replace this with the actual URL of your API endpoint
+
+    fetch(apiUrl, { mode: 'cors' })
+  .then(response => {
+    // Check if the response is successful
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    // Parse the JSON response
+    return response.json();
+  })
+  .then(data => {
+    // Display the retrieved data on the webpage
+    const apiDataElement = document.getElementById('api-data');
+    apiDataElement.textContent = JSON.stringify(data, null, 2);
+  })
+  .catch(error => {
+    // Handle any errors that occur during the fetch request
+    console.error('There was a problem with the fetch operation:', error);
+  });
+  </script>
+</body>
+</html>
