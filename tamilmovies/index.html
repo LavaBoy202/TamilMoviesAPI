@@ -11,26 +11,13 @@
 
   <script>
     // Define the URL of the API endpoint
-    const apiUrl = 'http://127.0.0.1:5000/'; // Replace this with the actual URL of your API endpoint
-
-    fetch(apiUrl, { mode: 'cors' })
+    
+    fetch('http://127.0.0.1:4000')
   .then(response => {
-    // Check if the response is successful
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    // Parse the JSON response
-    return response.json();
-  })
-  .then(data => {
-    // Display the retrieved data on the webpage
-    const apiDataElement = document.getElementById('api-data');
-    apiDataElement.textContent = JSON.stringify(data, null, 2);
-  })
-  .catch(error => {
-    // Handle any errors that occur during the fetch request
-    console.error('There was a problem with the fetch operation:', error);
-  });
+    return response.json()
+    
+  }).then (data => {console.log(data)
+  }).catch(error => console.log(error));
   </script>
 </body>
 </html>
