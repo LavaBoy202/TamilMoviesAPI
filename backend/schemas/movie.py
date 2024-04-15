@@ -15,6 +15,7 @@ class Movie:
         self.director = director
         self.cast = cast
 
+    ##This is for when you want to write to the database
     def to_dict(self):
         return {
             "genre": self.genre,
@@ -30,7 +31,7 @@ class Movie:
             "director": self.director.to_dict(),
             "cast": [actor.to_dict() for actor in self.cast]
         }
-
+    ##This is for when you want to read from the database
     @classmethod
     def from_dict(cls, data):
         return cls(
